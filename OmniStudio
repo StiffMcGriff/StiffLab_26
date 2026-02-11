@@ -1,0 +1,15 @@
+OmniStudio/
+├── main.py             # Entry point
+├── core/
+│   ├── __init__.py
+│   ├── analyzer.py     # Librosa BPM/Key detection
+│   ├── mastering.py    # Matchering 2.0 wrapper
+│   ├── separator.py    # Spleeter/Demucs wrapper
+│   └── generator.py    # ACE-Step/Riffusion logic
+├── gui/
+│   ├── __init__.py
+│   └── studio_ui.py    # PyQt6 Interface
+├── assets/
+│   └── samples/        # Local sample library for Co-Producer feature
+├── output/             # Rendered files
+└── requirements.txt
