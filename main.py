@@ -21,20 +21,27 @@ CORE CAPABILITIES:
 COPYRIGHT © 2024 Stiff McGriff. All rights reserved.
 """
 
+# ... (top of file) ...
 import sys
 import os
 
 # --- System Path Configuration ---
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-# Ensure core modules can be imported
+
+# --- Import GUI (MUST BE AFTER PATH SETUP) ---
 try:
-    from core.analyzer import AudioAnalyzer
-    from core.mastering import MasteringEngine
-    from core.separator import StemSeparator
-    print("✅ Core modules loaded successfully.")
+    from PyQt6.QtWidgets import QApplication
+    # CHANGE THIS LINE to point to gui folder:
+    from gui.studio_ui import StudioWindow 
 except ImportError as e:
-    print(f"❌ Failed to load core modules: {e}")
+    print(f"Fatal Error: Could not load GUI. Did you move studio_ui.py to the gui folder? Error: {e}")
     sys.exit(1)
+# ... (rest of main.py) ...
+import sys
+import os
+
+# --- System Path Configuration ---
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # --- Dependency Check ---
 def check_dependencies():
@@ -129,4 +136,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
