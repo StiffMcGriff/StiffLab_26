@@ -26,6 +26,15 @@ import os
 
 # --- System Path Configuration ---
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# Ensure core modules can be imported
+try:
+    from core.analyzer import AudioAnalyzer
+    from core.mastering import MasteringEngine
+    from core.separator import StemSeparator
+    print("✅ Core modules loaded successfully.")
+except ImportError as e:
+    print(f"❌ Failed to load core modules: {e}")
+    sys.exit(1)
 
 # --- Dependency Check ---
 def check_dependencies():
@@ -120,3 +129,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
