@@ -1,0 +1,8 @@
+PyQt6
+PyQt6-Qt6
+PyQt6-sip
+matchering
+spleeter
+librosa
+numpy
+soundfile
