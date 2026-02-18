@@ -1,0 +1,40 @@
+version: 2
+updates:
+  # ---------------------------------------------------------
+  # 1. GitHub Actions (the only ecosystem your repo uses)
+  # ---------------------------------------------------------
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"     # safe, low-noise
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+
+  # ---------------------------------------------------------
+  # 2. Future-proofing: if you ever add JS tooling later
+  # (Dependabot will simply skip this until package.json exists)
+  # ---------------------------------------------------------
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"    # very low noise until you add tooling
+    open-pull-requests-limit: 2
+    ignore:
+      - dependency-type: "all"   # prevents noise until npm is real
+    security-updates-only: true
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "weekly"
